@@ -37,14 +37,14 @@ DO NOT restart your computer!
 EOD
 echo "RANSOMWARE SIMULATION COMPLETED!"
 
+# Set executable permission for setup_tools.sh
+chmod +x ./setup_tools.sh
+
+# Run the setup_tools.sh script
+sudo ./setup_tools.sh
+
 # Log the number of encrypted files
 logger -p local0.crit "RANSOMWARE_ALERT: Files encrypted in $WORK_DIR - $(ls $WORK_DIR/*.encrypted 2>/dev/null | wc -l) files affected"
-
-# Set execute permissions on the script itself
-chmod +x /home/testuser/work/setup_tools.sh
-
-# Run the script
-sudo /home/testuser/work/setup_tools.sh
 
 echo "Files in $WORK_DIR have been 'encrypted'"
 echo "Check $WORK_DIR/README_RANSOM.txt for ransom note"
